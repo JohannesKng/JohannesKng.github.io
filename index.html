@@ -11,29 +11,7 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      transition: background-position 0.7s ease-in-out;
-    }
-
-    /* Default fallback untuk desktop */
-    @media (min-width: 1025px) {
-      body {
-        background-image: url('./static/foto/8.png');
-      }
-    }
-
-    /* iPad: 768px - 1024px */
-    @media (min-width: 768px) and (max-width: 1024px) {
-      body {
-        background-image: url('./static/foto/10.png');
-      }
-    }
-
-    /* Mobile: max 767px */
-    @media (max-width: 767px) {
-      body {
-        background-image: url('./static/foto/9.png');
-        background-position: left;
-      }
+      transition: background 0.7s ease-in-out;
     }
   </style>
 </head>
@@ -70,7 +48,7 @@
       Artika Esterlin Sianipar
     </h1>
     <button
-      class="p-2 bg-green-600 text-white rounded mt-5 hover:bg-red-800 transition ease-in w-full animate__animated animate__delay-1s animate__tada text-sm sm:text-base"
+      class="p-2 bg-pink-600 text-white rounded mt-5 hover:bg-red-700 transition ease-in w-full animate__animated animate__delay-1s animate__tada text-sm sm:text-base"
       onclick="ubahKartu()"
     >
       Klik Disini Cantikkk!
@@ -150,20 +128,17 @@
       location.reload();
     }
 
-    // Optional JavaScript fallback (jaga-jaga jika CSS media query tidak bekerja)
+    // Deteksi perangkat untuk menentukan background
     const body = document.getElementById("mainBody");
-    const userAgent = navigator.userAgent;
+    const ua = navigator.userAgent;
 
-    if (/iPad/i.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
-      body.style.backgroundImage = "url('./static/foto/10.png')";
-    } else if (/Android|iPhone|iPod/i.test(userAgent)) {
-      body.style.backgroundImage = "url('./static/foto/9.png')";
-      body.style.backgroundPosition = "left";
+    if (/iPad/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      body.style.backgroundImage = "url('./static/foto/ipad.jpg')";
+    } else if (/Android|iPhone|iPod/i.test(ua)) {
+      body.style.backgroundImage = "url('./static/foto/iphone.png')";
     } else {
-      body.style.backgroundImage = "url('./static/foto/8.png')";
-      body.style.backgroundPosition = "center";
+      body.style.backgroundImage = "url('./static/foto/mac.jpg')";
     }
   </script>
 </body>
-
 </html>
